@@ -749,6 +749,13 @@
     // 4. CLOAKED LAUNCHER
     // ---------------------------------------------------------
     function launch(url) {
+        // Route KBH Games through webfuse proxy (opens in same tab)
+        if (url.includes('kbhgames.com')) {
+            window.location = 'https://demo.webfuse.com/+/' + encodeURIComponent(url);
+            return;
+        }
+
+        // Modal for all other links
         const modal = document.createElement('div');
         modal.id = 'game-modal';
         modal.style.cssText = `
